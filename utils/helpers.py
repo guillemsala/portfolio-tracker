@@ -34,14 +34,14 @@ def generate_sample_csv() -> bytes:
         "Value date": ["17.01.2024", "22.01.2024", "07.02.2024", "12.02.2024"],
         "ISIN": ["US0378331005", "US5949181045", "IE00B4L5Y983", "US0378331005"],
         "Ccy.": ["USD", "USD", "USD", "USD"],
-        "Number/amt.": [10, 5, 20, 3],
+        "Number/Amt.": [10, 5, 20, 3],
         "Trans. price": [185.5, 374.0, 85.2, 195.0],
         "Exchange rate": [1.0, 1.0, 1.0, 1.0],
-        "Valuation currency": ["USD", "USD", "USD", "USD"],
-        "Trans. value": [-1855.0, -1870.0, -1704.0, 585.0],
+        "Valuation currency": ["CHF", "CHF", "CHF", "CHF"],
+        "Trans. value": [1855.0, 1870.0, 1704.0, 585.0],
         "Asset class": ["Equity", "Equity", "ETF", "Equity"],
     }
     df = pd.DataFrame(data)
     buf = io.BytesIO()
-    df.to_csv(buf, index=False)
+    df.to_csv(buf, sep=";", index=False)
     return buf.getvalue()
